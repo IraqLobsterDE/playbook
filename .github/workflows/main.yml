@@ -68,5 +68,5 @@ jobs:
         uses: actions/upload-artifact@v3.1.1
         with:
           name: download
-          path: sxsc-src
+          path: ./src/
             
