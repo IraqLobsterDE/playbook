@@ -20,7 +20,7 @@ jobs:
 
       - name: Update version
         run: |
-          $version = "${{ github.ref_name }}"
+          $version = "24.12"
           $playbookConfPath = "src\playbook.conf"
           $finalizeCMDPath = "src\Executables\FINALIZE.cmd"
 
@@ -69,7 +69,7 @@ jobs:
         with:
           file: ${{ env.FILENAME }}
           asset_name: ${{ env.FILENAME }}
-          tag: ${{ github.ref }}
+          tag: 24.12
           overwrite: true
           body: |
             # Download Link ✨
