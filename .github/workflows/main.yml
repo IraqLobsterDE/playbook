@@ -65,19 +65,7 @@ jobs:
       #     echo "DEVUPLOADS=$url" >> $GITHUB_ENV
 
       - name: Release
-        uses: svenstaro/upload-release-action@v2
+        uses: actions/upload-artifact@v3.1.1
         with:
-          repo_token: ${{ secrets.TOKEN }}
-          file: ${{ env.FILENAME }}
-          asset_name: ${{ env.FILENAME }}
-          tag: ${{ github.ref }}
-          overwrite: true
-          body: |
-            # Download Link ✨
-
-            If you would like to support Revision, kindly download the Playbook from the provided link below.
-
-            📌Link: 
-            
-            SHA256: `${{ env.HASH }}`
+          name: download
             
