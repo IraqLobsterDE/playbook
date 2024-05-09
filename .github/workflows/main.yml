@@ -2,9 +2,8 @@ name: Archive and Release
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    tags:
+      - '*'
 
 env:
     SXSC_REPO: 'https://github.com/Atlas-OS/sxsc'
@@ -65,8 +64,18 @@ jobs:
       #     echo "DEVUPLOADS=$url" >> $GITHUB_ENV
 
       - name: Release
-        uses: actions/upload-artifact@v3.1.1
+        uses: svenstaro/upload-release-action@v2
         with:
-          name: download
-          path: ./src/
+          file: ${{ env.FILENAME }}
+          asset_name: ${{ env.FILENAME }}
+          tag: ${{ github.ref }}
+          overwrite: true
+          body: |
+            # Download Link ✨
+
+            If you would like to support Revision, kindly download the Playbook from the provided link below.
+
+            📌Link: 
+            
+            SHA256: `${{ env.HASH }}`
             
